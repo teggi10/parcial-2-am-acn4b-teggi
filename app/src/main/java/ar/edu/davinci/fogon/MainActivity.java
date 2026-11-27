@@ -3,10 +3,13 @@ package ar.edu.davinci.fogon;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -18,12 +21,14 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements ApiRequest.Listener {
     public String selectedCategory = null;
+    public String searchQuery = "";
 
     private void openRecipe(Recipe recipe) {
         Intent intent = new Intent(this, RecipeDetailActivity.class);
@@ -69,9 +74,47 @@ public class MainActivity extends AppCompatActivity implements ApiRequest.Listen
     private List<Recipe> filterRecipes() {
         List<Recipe> result = new ArrayList<>();
         for (Recipe recipe : RecipeRepository.getAll()) {
-            if (selectedCategory == null || selectedCategory.equals(recipe.getCategory())) result.add(recipe);
+            boolean categoryMatches = selectedCategory == null || selectedCategory.equals(recipe.getCategory());
+            if (categoryMatches && matchesSearch(recipe)) result.add(recipe);
         }
         return result;
+    }
+
+    private boolean matchesSearch(Recipe recipe) {
+        String query = normalize(searchQuery);
+        if (query.isEmpty()) return true;
+        if (normalize(recipe.getName()).contains(query)) return true;
+        for (Ingredient ingredient : recipe.getIngredients()) {
+            if (normalize(ingredient.getSingular()).contains(query)) return true;
+            if (normalize(ingredient.getPlural()).contains(query)) return true;
+        }
+        return false;
+    }
+
+    // Lowercase and without accents, so "salteñas" matches "saltenas" and "chipá" matches "chipa".
+    private String normalize(String text) {
+        if (text == null) return "";
+        String decomposed = Normalizer.normalize(text.trim().toLowerCase(Locale.getDefault()), Normalizer.Form.NFD);
+        return decomposed.replaceAll("\\p{M}", "");
+    }
+
+    private void setupSearch() {
+        EditText searchInput = findViewById(R.id.searchInput);
+        searchInput.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                searchQuery = s.toString();
+                if (RecipeRepository.isLoaded()) renderRecipes(filterRecipes());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });
     }
 
     private void renderCategories() {
@@ -242,6 +285,7 @@ public class MainActivity extends AppCompatActivity implements ApiRequest.Listen
         });
 
         BottomNav.setup(this, BottomNav.Tab.HOME);
+        setupSearch();
 
         if (RecipeRepository.isLoaded()) {
             findViewById(R.id.statusView).setVisibility(View.GONE);
