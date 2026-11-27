@@ -38,6 +38,12 @@
     <dimen name="fab_size">56dp</dimen>
     <dimen name="icon_size">24dp</dimen>
 
+    <dimen name="text_cooking_step">28sp</dimen>
+    <dimen name="text_cooking_clock">36sp</dimen>
+    <dimen name="progress_height">6dp</dimen>
+    <dimen name="progress_gap">6dp</dimen>
+    <dimen name="timer_radius">20dp</dimen>
+
     <dimen name="card_radius">14dp</dimen>
     <dimen name="card_padding">12dp</dimen>
     <dimen name="card_gap">8dp</dimen>

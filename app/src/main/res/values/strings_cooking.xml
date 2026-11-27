@@ -1,0 +1,13 @@
+<resources>
+    <string name="cooking_close">Salir del modo cocina</string>
+    <string name="cooking_step_counter">Paso %1$d de %2$d</string>
+    <string name="cooking_timer_label">Temporizador</string>
+    <string name="cooking_timer_start">Iniciar</string>
+    <string name="cooking_timer_pause">Pausar</string>
+    <string name="cooking_timer_resume">Seguir</string>
+    <string name="cooking_timer_done">¡Tiempo!</string>
+    <string name="cooking_timer_finished_toast">¡Terminó el tiempo de este paso!</string>
+    <string name="cooking_previous">Anterior</string>
+    <string name="cooking_next_step">Siguiente</string>
+    <string name="cooking_clock">%1$02d:%2$02d</string>
+</resources>

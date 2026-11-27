@@ -16,4 +16,12 @@
     <color name="tomato">#FFC4491F</color>
     <color name="crust">#FFE8DCCB</color>
     <color name="crust_dark">#FF8A7560</color>
+
+    <color name="cooking_background">#FF1D1F1C</color>
+    <color name="cooking_surface">#FF2E312C</color>
+    <color name="cooking_text">#FFF5F3EE</color>
+    <color name="cooking_muted">#FFB9BCB4</color>
+    <color name="cooking_outline">#FF4A4E46</color>
+    <color name="cooking_progress_done">#FFE07A52</color>
+    <color name="cooking_progress_todo">#FF3A3D37</color>
 </resources>

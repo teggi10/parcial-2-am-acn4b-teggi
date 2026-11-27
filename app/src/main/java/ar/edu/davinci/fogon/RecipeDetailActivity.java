@@ -1,5 +1,6 @@
 package ar.edu.davinci.fogon;
 
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Paint;
 import android.graphics.Typeface;
@@ -12,11 +13,11 @@ import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
@@ -30,56 +31,38 @@ import java.util.Locale;
 public class RecipeDetailActivity extends AppCompatActivity {
     public static final String EXTRA_RECIPE = "recipe";
     public final int MIN_PORTIONS = 1;
+    public final int COOKING_REQUEST = 1;
 
     public Recipe recipe;
     public int portions;
     public boolean inShoppingList = false;
     public boolean isFavorite = false;
-    public List<LinearLayout> stepRows = new ArrayList<>();
-    public int currentStep = -1;
 
     private int maxPortions() {
         return recipe.getServings() * 4;
     }
 
-    public void nextCookingStep(View view) {
-        currentStep++;
-        if (currentStep >= stepRows.size()) {
-            currentStep = -1;
-            Toast.makeText(this, R.string.cooking_done_toast, Toast.LENGTH_LONG).show();
-        }
-        highlightCurrentStep();
-        updateCookingButton((Button) view);
+    public void startCooking(View view) {
+        Bundle bundle = new Bundle();
+        bundle.putString(CookingActivity.EXTRA_RECIPE_NAME, recipe.getName());
+        bundle.putSerializable(CookingActivity.EXTRA_STEPS, new ArrayList<>(recipe.getSteps()));
+
+        Intent intent = new Intent(this, CookingActivity.class);
+        intent.putExtras(bundle);
+        startActivityForResult(intent, COOKING_REQUEST);
     }
 
-    private void highlightCurrentStep() {
-        for (int i = 0; i < stepRows.size(); i++) {
-            stepRows.get(i).setBackgroundResource(i == currentStep ? R.drawable.bg_step_active : 0);
-        }
-        if (currentStep >= 0) scrollTo(stepRows.get(currentStep));
-    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
-    private void updateCookingButton(Button button) {
-        int total = stepRows.size();
-        if (currentStep < 0) {
-            button.setText(R.string.cooking_start);
-        } else if (currentStep == total - 1) {
-            button.setText(R.string.cooking_finish);
-        } else {
-            button.setText(getString(R.string.cooking_next, currentStep + 2, total));
-        }
-    }
+        if (requestCode != COOKING_REQUEST) return;
+        if (resultCode != RESULT_OK) return;
+        if (data == null || !data.getBooleanExtra(CookingActivity.EXTRA_COMPLETED, false)) return;
 
-    private void scrollTo(View target) {
-        ScrollView scrollView = findViewById(R.id.scrollView);
-        int y = 0;
-        View view = target;
-        while (view != scrollView) {
-            y += view.getTop();
-            view = (View) view.getParent();
-        }
-        int offset = getResources().getDimensionPixelSize(R.dimen.section_spacing);
-        scrollView.smoothScrollTo(0, Math.max(0, y - offset));
+        Button cookingButton = findViewById(R.id.buttonCooking);
+        cookingButton.setText(R.string.cooking_again);
+        Toast.makeText(this, R.string.cooking_done_toast, Toast.LENGTH_LONG).show();
     }
 
     public void goBack(View view) {
@@ -261,7 +244,6 @@ public class RecipeDetailActivity extends AppCompatActivity {
             row.addView(text, textParams);
 
             container.addView(row);
-            stepRows.add(row);
         }
     }
 

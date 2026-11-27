@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cooking_background"
+    tools:context=".CookingActivity">
+
+    <LinearLayout
+        android:id="@+id/cookingHeader"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/screen_padding"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:layout_width="@dimen/round_button_size"
+            android:layout_height="@dimen/round_button_size"
+            android:background="@drawable/bg_round_button_dark"
+            android:contentDescription="@string/cooking_close"
+            android:onClick="closeCooking"
+            android:src="@drawable/ic_close" />
+
+        <TextView
+            android:id="@+id/cookingRecipeName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:paddingStart="@dimen/step_gap"
+            android:paddingEnd="@dimen/step_gap"
+            android:textColor="@color/cooking_muted"
+            android:textSize="@dimen/text_body" />
+
+        <TextView
+            android:id="@+id/cookingStepCounter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/cooking_text"
+            android:textSize="@dimen/text_body"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/cookingProgress"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/progress_height"
+        android:layout_marginStart="@dimen/screen_padding"
+        android:layout_marginTop="@dimen/screen_padding"
+        android:layout_marginEnd="@dimen/screen_padding"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cookingHeader" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/screen_padding"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/cookingActions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cookingProgress">
+
+        <TextView
+            android:id="@+id/cookingStepText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingMultiplier="1.15"
+            android:textColor="@color/cooking_text"
+            android:textSize="@dimen/text_cooking_step"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/timerCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/section_spacing"
+            android:background="@drawable/bg_timer_card"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/screen_padding">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cooking_timer_label"
+                    android:textColor="@color/cooking_muted"
+                    android:textSize="@dimen/text_overline" />
+
+                <TextView
+                    android:id="@+id/timerClock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFeatureSettings="tnum"
+                    android:textColor="@color/cooking_text"
+                    android:textSize="@dimen/text_cooking_clock"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/timerButton"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/round_button_size"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:onClick="toggleTimer"
+                android:text="@string/cooking_timer_start"
+                android:textColor="@color/cooking_background"
+                android:textSize="@dimen/text_body"
+                app:backgroundTint="@color/cooking_text"
+                app:cornerRadius="@dimen/round_button_radius" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/cookingActions"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/screen_padding"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/buttonPreviousStep"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/action_button_height"
+            android:layout_weight="1"
+            android:onClick="previousStep"
+            android:text="@string/cooking_previous"
+            android:textColor="@color/cooking_text"
+            android:textSize="@dimen/text_body"
+            app:cornerRadius="@dimen/card_radius"
+            app:strokeColor="@color/cooking_outline" />
+
+        <Space
+            android:layout_width="@dimen/card_gap"
+            android:layout_height="0dp" />
+
+        <Button
+            android:id="@+id/buttonNextStep"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/action_button_height"
+            android:layout_weight="2"
+            android:onClick="nextStep"
+            android:text="@string/cooking_next_step"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_body"
+            app:backgroundTint="@color/tomato"
+            app:cornerRadius="@dimen/card_radius" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
