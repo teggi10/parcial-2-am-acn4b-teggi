@@ -26,6 +26,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RecipeDetailActivity extends AppCompatActivity {
+    public static final String EXTRA_RECIPE = "recipe";
+
     public final int BASE_PORTIONS = 12;
     public final int MIN_PORTIONS = 1;
     public final int MAX_PORTIONS = 48;

@@ -1,5 +1,6 @@
 package ar.edu.davinci.fogon;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.TypedValue;
@@ -23,6 +24,12 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements ApiRequest.Listener {
     public String selectedCategory = null;
+
+    private void openRecipe(Recipe recipe) {
+        Intent intent = new Intent(this, RecipeDetailActivity.class);
+        intent.putExtra(RecipeDetailActivity.EXTRA_RECIPE, recipe);
+        startActivity(intent);
+    }
 
     public void retryLoad(View view) {
         loadRecipes();
@@ -117,6 +124,7 @@ public class MainActivity extends AppCompatActivity implements ApiRequest.Listen
         }
         card.setVisibility(View.VISIBLE);
         card.setClipToOutline(true);
+        card.setOnClickListener(v -> openRecipe(recipe));
 
         TextView name = findViewById(R.id.featuredName);
         name.setText(recipe.getName());
@@ -170,6 +178,9 @@ public class MainActivity extends AppCompatActivity implements ApiRequest.Listen
         );
         cardParams.topMargin = dimen(R.dimen.card_gap);
         card.setLayoutParams(cardParams);
+        card.setClickable(true);
+        card.setFocusable(true);
+        card.setOnClickListener(v -> openRecipe(recipe));
 
         ImageView thumb = new ImageView(this);
         thumb.setBackgroundResource(R.drawable.bg_thumb);
