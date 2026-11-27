@@ -22,6 +22,14 @@ public class RecipeRepository {
         return new ArrayList<>(remoteRecipes);
     }
 
+    public static List<String> getCategories() {
+        List<String> categories = new ArrayList<>();
+        for (Recipe recipe : getAll()) {
+            if (!categories.contains(recipe.getCategory())) categories.add(recipe.getCategory());
+        }
+        return categories;
+    }
+
     public static Recipe getFeatured() {
         return remoteRecipes.isEmpty() ? null : remoteRecipes.get(0);
     }

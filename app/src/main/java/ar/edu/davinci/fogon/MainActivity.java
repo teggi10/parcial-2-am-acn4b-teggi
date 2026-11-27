@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -16,10 +17,12 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements ApiRequest.Listener {
+    public String selectedCategory = null;
 
     public void retryLoad(View view) {
         loadRecipes();
@@ -52,7 +55,57 @@ public class MainActivity extends AppCompatActivity implements ApiRequest.Listen
 
     private void render() {
         renderFeatured();
-        renderRecipes(RecipeRepository.getAll());
+        renderCategories();
+        renderRecipes(filterRecipes());
+    }
+
+    private List<Recipe> filterRecipes() {
+        List<Recipe> result = new ArrayList<>();
+        for (Recipe recipe : RecipeRepository.getAll()) {
+            if (selectedCategory == null || selectedCategory.equals(recipe.getCategory())) result.add(recipe);
+        }
+        return result;
+    }
+
+    private void renderCategories() {
+        LinearLayout container = findViewById(R.id.categoryContainer);
+        container.removeAllViews();
+        container.addView(createCategoryChip(getString(R.string.home_all_categories), null));
+        for (String category : RecipeRepository.getCategories()) {
+            container.addView(createCategoryChip(category, category));
+        }
+    }
+
+    private Button createCategoryChip(String label, String category) {
+        boolean selected = category == null ? selectedCategory == null : category.equals(selectedCategory);
+
+        Button chip = new Button(this);
+        chip.setText(label);
+        chip.setAllCaps(false);
+        chip.setStateListAnimator(null);
+        chip.setMinWidth(0);
+        chip.setMinimumWidth(0);
+        chip.setMinHeight(0);
+        chip.setMinimumHeight(0);
+        chip.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.text_body));
+        chip.setBackgroundResource(selected ? R.drawable.bg_chip_selected : R.drawable.bg_chip);
+        chip.setTextColor(ContextCompat.getColor(this, selected ? R.color.white : R.color.ink));
+        chip.setTypeface(selected ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
+        int padding = dimen(R.dimen.chip_padding);
+        chip.setPadding(padding, 0, padding, 0);
+
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT, dimen(R.dimen.chip_height)
+        );
+        params.setMarginEnd(dimen(R.dimen.card_gap));
+        chip.setLayoutParams(params);
+
+        chip.setOnClickListener(v -> {
+            selectedCategory = category;
+            renderCategories();
+            renderRecipes(filterRecipes());
+        });
+        return chip;
     }
 
     private void renderFeatured() {
