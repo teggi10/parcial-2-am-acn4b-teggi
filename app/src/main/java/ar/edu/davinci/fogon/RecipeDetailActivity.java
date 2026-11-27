@@ -35,7 +35,7 @@ public class RecipeDetailActivity extends AppCompatActivity {
 
     public Recipe recipe;
     public int portions;
-    public boolean inShoppingList = false;
+
     public boolean isFavorite = false;
 
     private int maxPortions() {
@@ -85,33 +85,35 @@ public class RecipeDetailActivity extends AppCompatActivity {
     }
 
     public void toggleShoppingList(View view) {
-        Button button = (Button) view;
-
-        if (inShoppingList) {
-            inShoppingList = false;
-            button.setText(R.string.shopping_add);
+        if (ShoppingList.containsRecipe(recipe.getName())) {
+            ShoppingList.removeRecipe(recipe.getName());
+            updateShoppingButton();
             Toast.makeText(this, R.string.shopping_removed, Toast.LENGTH_SHORT).show();
             return;
         }
 
-        int missing = countMissingIngredients();
-        if (missing == 0) {
+        int added = ShoppingList.addFromRecipe(this, recipe, portions);
+        if (added == 0) {
             Toast.makeText(this, R.string.shopping_nothing_missing, Toast.LENGTH_SHORT).show();
             return;
         }
 
-        inShoppingList = true;
-        button.setText(R.string.shopping_added);
-        String message = getResources().getQuantityString(R.plurals.shopping_added_toast, missing, missing);
+        updateShoppingButton();
+        String message = getResources().getQuantityString(R.plurals.shopping_added_toast, added, added);
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
-    private int countMissingIngredients() {
-        int missing = 0;
-        for (Ingredient ingredient : recipe.getIngredients()) {
-            if (!ingredient.isChecked() && !ingredient.isToTaste()) missing++;
-        }
-        return missing;
+    private void updateShoppingButton() {
+        Button button = findViewById(R.id.buttonShoppingList);
+        boolean inList = ShoppingList.containsRecipe(recipe.getName());
+        button.setText(inList ? R.string.shopping_added : R.string.shopping_add);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // The list may have changed in another screen while this one was in the background.
+        if (recipe != null) updateShoppingButton();
     }
 
     public void decreasePortions(View view) {
