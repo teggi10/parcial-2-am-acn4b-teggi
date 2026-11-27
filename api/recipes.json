@@ -1,0 +1,706 @@
+{
+  "recipes": [
+    {
+      "id": 1,
+      "name": "Empanadas salteñas",
+      "category": "Saladas",
+      "region": "Norte argentino",
+      "description": "Jugosas, con carne cortada a cuchillo, papa y huevo. Ideales para el horno de barro o el de casa.",
+      "minutes": 80,
+      "difficulty": "Media",
+      "calories": "290 / u.",
+      "servings": 12,
+      "servingSingular": "empanada",
+      "servingPlural": "empanadas",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Empanadas_salte%C3%B1as_1.jpg/960px-Empanadas_salte%C3%B1as_1.jpg",
+      "photoCredit": "Foto: Gonzalo Rivero · CC BY-SA 4.0 · Wikimedia Commons",
+      "ingredients": [
+        {
+          "quantity": 12,
+          "singular": "tapa de empanada",
+          "plural": "tapas de empanada"
+        },
+        {
+          "quantity": 500,
+          "singular": "g de carne de nalga",
+          "plural": "g de carne de nalga"
+        },
+        {
+          "quantity": 2,
+          "singular": "cebolla mediana",
+          "plural": "cebollas medianas"
+        },
+        {
+          "quantity": 1,
+          "singular": "morrón rojo",
+          "plural": "morrones rojos"
+        },
+        {
+          "quantity": 2,
+          "singular": "papa",
+          "plural": "papas"
+        },
+        {
+          "quantity": 3,
+          "singular": "huevo",
+          "plural": "huevos"
+        },
+        {
+          "quantity": 3,
+          "singular": "cebolla de verdeo",
+          "plural": "cebollas de verdeo"
+        },
+        {
+          "quantity": 2,
+          "singular": "cda. de grasa vacuna",
+          "plural": "cdas. de grasa vacuna"
+        },
+        {
+          "quantity": 1,
+          "singular": "cdita. de comino",
+          "plural": "cditas. de comino"
+        },
+        {
+          "quantity": 1,
+          "singular": "cda. de pimentón dulce",
+          "plural": "cdas. de pimentón dulce"
+        },
+        {
+          "quantity": 0,
+          "singular": "Sal y ají molido a gusto",
+          "plural": "Sal y ají molido a gusto"
+        }
+      ],
+      "steps": [
+        {
+          "text": "Hervir los huevos, enfriarlos y picarlos. Reservar.",
+          "minutes": 10
+        },
+        {
+          "text": "Cortar la carne a cuchillo en cubos pequeños.",
+          "minutes": 0
+        },
+        {
+          "text": "Rehogar la cebolla y el morrón picados en la grasa, a fuego medio.",
+          "minutes": 8
+        },
+        {
+          "text": "Agregar la carne, el comino y el pimentón. Cocinar sin que se seque.",
+          "minutes": 5
+        },
+        {
+          "text": "Sumar la papa hervida en cubos y la cebolla de verdeo. Dejar enfriar el relleno.",
+          "minutes": 0
+        },
+        {
+          "text": "Rellenar las tapas, agregar huevo picado y repulgar.",
+          "minutes": 0
+        },
+        {
+          "text": "Hornear a 220 °C hasta que estén doradas.",
+          "minutes": 15
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Milanesa napolitana",
+      "category": "Saladas",
+      "region": "Buenos Aires",
+      "description": "El clásico de bodegón: milanesa de nalga con salsa de tomate, jamón y muzzarella gratinada.",
+      "minutes": 45,
+      "difficulty": "Fácil",
+      "calories": "620 / porción",
+      "servings": 4,
+      "servingSingular": "porción",
+      "servingPlural": "porciones",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Milanesa_napolitana_argentina.jpg/960px-Milanesa_napolitana_argentina.jpg",
+      "photoCredit": "Foto: Horacio Cambeiro · CC BY 3.0 · Wikimedia Commons",
+      "ingredients": [
+        {
+          "quantity": 4,
+          "singular": "bife de nalga",
+          "plural": "bifes de nalga"
+        },
+        {
+          "quantity": 2,
+          "singular": "huevo",
+          "plural": "huevos"
+        },
+        {
+          "quantity": 250,
+          "singular": "g de pan rallado",
+          "plural": "g de pan rallado"
+        },
+        {
+          "quantity": 1,
+          "singular": "diente de ajo",
+          "plural": "dientes de ajo"
+        },
+        {
+          "quantity": 2,
+          "singular": "cda. de perejil picado",
+          "plural": "cdas. de perejil picado"
+        },
+        {
+          "quantity": 200,
+          "singular": "ml de salsa de tomate",
+          "plural": "ml de salsa de tomate"
+        },
+        {
+          "quantity": 4,
+          "singular": "feta de jamón cocido",
+          "plural": "fetas de jamón cocido"
+        },
+        {
+          "quantity": 250,
+          "singular": "g de muzzarella",
+          "plural": "g de muzzarella"
+        },
+        {
+          "quantity": 1,
+          "singular": "cdita. de orégano",
+          "plural": "cditas. de orégano"
+        },
+        {
+          "quantity": 0,
+          "singular": "Aceite para freír y sal a gusto",
+          "plural": "Aceite para freír y sal a gusto"
+        }
+      ],
+      "steps": [
+        {
+          "text": "Batir los huevos con el ajo picado, el perejil y sal.",
+          "minutes": 0
+        },
+        {
+          "text": "Pasar los bifes por el huevo y luego por el pan rallado, presionando bien.",
+          "minutes": 0
+        },
+        {
+          "text": "Freír en aceite caliente, 3 minutos por lado.",
+          "minutes": 6
+        },
+        {
+          "text": "Escurrir sobre papel y acomodar en una placa para horno.",
+          "minutes": 0
+        },
+        {
+          "text": "Cubrir cada milanesa con salsa, una feta de jamón y muzzarella.",
+          "minutes": 0
+        },
+        {
+          "text": "Gratinar en horno a 200 °C hasta que se derrita el queso.",
+          "minutes": 10
+        },
+        {
+          "text": "Espolvorear con orégano y servir bien caliente.",
+          "minutes": 0
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Locro criollo",
+      "category": "Saladas",
+      "region": "Noroeste argentino",
+      "description": "El guiso patrio del 25 de Mayo: maíz blanco, porotos, zapallo y carnes, con su salsita picante.",
+      "minutes": 210,
+      "difficulty": "Media",
+      "calories": "520 / porción",
+      "servings": 8,
+      "servingSingular": "porción",
+      "servingPlural": "porciones",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Locro_argentino_%28porci%C3%B3n%29.jpg/960px-Locro_argentino_%28porci%C3%B3n%29.jpg",
+      "photoCredit": "Foto: Horacio Cambeiro · CC BY-SA 4.0 · Wikimedia Commons",
+      "ingredients": [
+        {
+          "quantity": 500,
+          "singular": "g de maíz blanco partido",
+          "plural": "g de maíz blanco partido"
+        },
+        {
+          "quantity": 250,
+          "singular": "g de porotos blancos",
+          "plural": "g de porotos blancos"
+        },
+        {
+          "quantity": 500,
+          "singular": "g de zapallo anco",
+          "plural": "g de zapallo anco"
+        },
+        {
+          "quantity": 400,
+          "singular": "g de falda de ternera",
+          "plural": "g de falda de ternera"
+        },
+        {
+          "quantity": 250,
+          "singular": "g de panceta",
+          "plural": "g de panceta"
+        },
+        {
+          "quantity": 2,
+          "singular": "chorizo colorado",
+          "plural": "chorizos colorados"
+        },
+        {
+          "quantity": 1,
+          "singular": "cebolla",
+          "plural": "cebollas"
+        },
+        {
+          "quantity": 1,
+          "singular": "cdita. de comino",
+          "plural": "cditas. de comino"
+        },
+        {
+          "quantity": 2,
+          "singular": "cda. de pimentón dulce",
+          "plural": "cdas. de pimentón dulce"
+        },
+        {
+          "quantity": 3,
+          "singular": "cebolla de verdeo",
+          "plural": "cebollas de verdeo"
+        },
+        {
+          "quantity": 0,
+          "singular": "Ají molido y sal a gusto",
+          "plural": "Ají molido y sal a gusto"
+        }
+      ],
+      "steps": [
+        {
+          "text": "Dejar en remojo el maíz y los porotos desde la noche anterior.",
+          "minutes": 0
+        },
+        {
+          "text": "Hervir el maíz y los porotos en una olla grande con agua.",
+          "minutes": 60
+        },
+        {
+          "text": "Agregar la falda y la panceta en cubos.",
+          "minutes": 45
+        },
+        {
+          "text": "Sumar el chorizo en rodajas y el zapallo en cubos, revolviendo seguido.",
+          "minutes": 45
+        },
+        {
+          "text": "Condimentar con comino, pimentón y sal, y cocinar hasta que espese.",
+          "minutes": 20
+        },
+        {
+          "text": "Para la salsita, rehogar el verdeo en grasa con pimentón y ají molido.",
+          "minutes": 5
+        },
+        {
+          "text": "Servir bien caliente con la salsita por encima.",
+          "minutes": 0
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Humita en chala",
+      "category": "Veggie",
+      "region": "Noroeste argentino",
+      "description": "Pastel de choclo rallado con cebolla, morrón y queso, envuelto y hervido en sus propias chalas.",
+      "minutes": 90,
+      "difficulty": "Media",
+      "calories": "230 / u.",
+      "servings": 6,
+      "servingSingular": "humita",
+      "servingPlural": "humitas",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Humitas_en_chala_tipicas_de_Argentina8.JPG/960px-Humitas_en_chala_tipicas_de_Argentina8.JPG",
+      "photoCredit": "Foto: Marcos Katz · CC BY 3.0 · Wikimedia Commons",
+      "ingredients": [
+        {
+          "quantity": 6,
+          "singular": "choclo con chala",
+          "plural": "choclos con chala"
+        },
+        {
+          "quantity": 1,
+          "singular": "cebolla",
+          "plural": "cebollas"
+        },
+        {
+          "quantity": 1,
+          "singular": "morrón rojo",
+          "plural": "morrones rojos"
+        },
+        {
+          "quantity": 200,
+          "singular": "g de queso cremoso",
+          "plural": "g de queso cremoso"
+        },
+        {
+          "quantity": 2,
+          "singular": "cda. de manteca",
+          "plural": "cdas. de manteca"
+        },
+        {
+          "quantity": 150,
+          "singular": "ml de leche",
+          "plural": "ml de leche"
+        },
+        {
+          "quantity": 6,
+          "singular": "hoja de albahaca",
+          "plural": "hojas de albahaca"
+        },
+        {
+          "quantity": 0,
+          "singular": "Sal y pimienta a gusto",
+          "plural": "Sal y pimienta a gusto"
+        }
+      ],
+      "steps": [
+        {
+          "text": "Separar las chalas enteras y reservar las más grandes.",
+          "minutes": 0
+        },
+        {
+          "text": "Rallar los choclos y reservar la pulpa.",
+          "minutes": 0
+        },
+        {
+          "text": "Rehogar la cebolla y el morrón picados en la manteca.",
+          "minutes": 8
+        },
+        {
+          "text": "Agregar el choclo y la leche, y cocinar revolviendo hasta que espese.",
+          "minutes": 15
+        },
+        {
+          "text": "Sumar la albahaca picada, salpimentar y dejar entibiar.",
+          "minutes": 0
+        },
+        {
+          "text": "Armar paquetes con dos chalas, el relleno y un cubo de queso, y atarlos.",
+          "minutes": 0
+        },
+        {
+          "text": "Hervir las humitas en agua con sal.",
+          "minutes": 40
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Chipá",
+      "category": "Veggie",
+      "region": "Litoral",
+      "description": "Bolitas de almidón de mandioca y queso, crocantes por fuera y elásticas por dentro.",
+      "minutes": 40,
+      "difficulty": "Fácil",
+      "calories": "80 / u.",
+      "servings": 24,
+      "servingSingular": "chipá",
+      "servingPlural": "chipás",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Chipa_Paraguay.jpg/960px-Chipa_Paraguay.jpg",
+      "photoCredit": "Foto: Ekem at English Wikipedia · CC BY-SA 3.0 · Wikimedia Commons",
+      "ingredients": [
+        {
+          "quantity": 500,
+          "singular": "g de almidón de mandioca",
+          "plural": "g de almidón de mandioca"
+        },
+        {
+          "quantity": 250,
+          "singular": "g de queso rallado tipo Mar del Plata",
+          "plural": "g de queso rallado tipo Mar del Plata"
+        },
+        {
+          "quantity": 100,
+          "singular": "g de manteca",
+          "plural": "g de manteca"
+        },
+        {
+          "quantity": 2,
+          "singular": "huevo",
+          "plural": "huevos"
+        },
+        {
+          "quantity": 120,
+          "singular": "ml de leche",
+          "plural": "ml de leche"
+        },
+        {
+          "quantity": 0,
+          "singular": "Sal a gusto",
+          "plural": "Sal a gusto"
+        }
+      ],
+      "steps": [
+        {
+          "text": "Mezclar el almidón de mandioca con la sal en un bol.",
+          "minutes": 0
+        },
+        {
+          "text": "Agregar la manteca pomada y los huevos, e integrar.",
+          "minutes": 0
+        },
+        {
+          "text": "Sumar el queso y la leche de a poco hasta lograr una masa suave.",
+          "minutes": 0
+        },
+        {
+          "text": "Dejar reposar la masa tapada.",
+          "minutes": 10
+        },
+        {
+          "text": "Formar bolitas de unos 3 cm y acomodarlas en una placa.",
+          "minutes": 0
+        },
+        {
+          "text": "Hornear a 200 °C hasta que apenas se doren.",
+          "minutes": 20
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Flan con dulce de leche",
+      "category": "Dulces",
+      "region": "Río de la Plata",
+      "description": "Flan casero de huevo, cocido a baño María y servido con una buena cucharada de dulce de leche.",
+      "minutes": 70,
+      "difficulty": "Fácil",
+      "calories": "310 / porción",
+      "servings": 8,
+      "servingSingular": "porción",
+      "servingPlural": "porciones",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Flan_con_dulce_de_leche_2.jpg/960px-Flan_con_dulce_de_leche_2.jpg",
+      "photoCredit": "Foto: Beatrice Murch · CC BY 2.0 · Wikimedia Commons",
+      "ingredients": [
+        {
+          "quantity": 1,
+          "singular": "litro de leche",
+          "plural": "litros de leche"
+        },
+        {
+          "quantity": 6,
+          "singular": "huevo",
+          "plural": "huevos"
+        },
+        {
+          "quantity": 300,
+          "singular": "g de azúcar",
+          "plural": "g de azúcar"
+        },
+        {
+          "quantity": 1,
+          "singular": "cdita. de esencia de vainilla",
+          "plural": "cditas. de esencia de vainilla"
+        },
+        {
+          "quantity": 300,
+          "singular": "g de dulce de leche repostero",
+          "plural": "g de dulce de leche repostero"
+        }
+      ],
+      "steps": [
+        {
+          "text": "Hacer un caramelo con 100 g de azúcar y cubrir la flanera.",
+          "minutes": 5
+        },
+        {
+          "text": "Batir los huevos con el resto del azúcar y la vainilla.",
+          "minutes": 0
+        },
+        {
+          "text": "Agregar la leche tibia de a poco y colar la mezcla.",
+          "minutes": 0
+        },
+        {
+          "text": "Volcar la preparación en la flanera acaramelada.",
+          "minutes": 0
+        },
+        {
+          "text": "Cocinar a baño María en horno a 160 °C.",
+          "minutes": 60
+        },
+        {
+          "text": "Enfriar y llevar a la heladera por lo menos 4 horas.",
+          "minutes": 0
+        },
+        {
+          "text": "Desmoldar y servir con dulce de leche.",
+          "minutes": 0
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Alfajores de maicena",
+      "category": "Dulces",
+      "region": "Argentina",
+      "description": "Tapitas que se deshacen en la boca, rellenas con dulce de leche y con el borde pasado por coco.",
+      "minutes": 50,
+      "difficulty": "Media",
+      "calories": "180 / u.",
+      "servings": 20,
+      "servingSingular": "alfajor",
+      "servingPlural": "alfajores",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Alfajores_de_maicena.jpg/960px-Alfajores_de_maicena.jpg",
+      "photoCredit": "Foto: Aylin Oporto · CC BY-SA 4.0 · Wikimedia Commons",
+      "ingredients": [
+        {
+          "quantity": 300,
+          "singular": "g de maicena",
+          "plural": "g de maicena"
+        },
+        {
+          "quantity": 200,
+          "singular": "g de harina 0000",
+          "plural": "g de harina 0000"
+        },
+        {
+          "quantity": 200,
+          "singular": "g de manteca",
+          "plural": "g de manteca"
+        },
+        {
+          "quantity": 150,
+          "singular": "g de azúcar",
+          "plural": "g de azúcar"
+        },
+        {
+          "quantity": 3,
+          "singular": "yema",
+          "plural": "yemas"
+        },
+        {
+          "quantity": 2,
+          "singular": "cdita. de polvo de hornear",
+          "plural": "cditas. de polvo de hornear"
+        },
+        {
+          "quantity": 1,
+          "singular": "cdita. de ralladura de limón",
+          "plural": "cditas. de ralladura de limón"
+        },
+        {
+          "quantity": 400,
+          "singular": "g de dulce de leche repostero",
+          "plural": "g de dulce de leche repostero"
+        },
+        {
+          "quantity": 100,
+          "singular": "g de coco rallado",
+          "plural": "g de coco rallado"
+        }
+      ],
+      "steps": [
+        {
+          "text": "Batir la manteca con el azúcar hasta lograr una crema.",
+          "minutes": 0
+        },
+        {
+          "text": "Agregar las yemas y la ralladura de limón.",
+          "minutes": 0
+        },
+        {
+          "text": "Incorporar la maicena, la harina y el polvo de hornear tamizados, sin amasar.",
+          "minutes": 0
+        },
+        {
+          "text": "Envolver la masa y llevar a la heladera.",
+          "minutes": 30
+        },
+        {
+          "text": "Estirar a 5 mm de espesor y cortar discos.",
+          "minutes": 0
+        },
+        {
+          "text": "Hornear a 170 °C sin que lleguen a dorarse.",
+          "minutes": 10
+        },
+        {
+          "text": "Unir de a dos con dulce de leche y pasar el borde por coco.",
+          "minutes": 0
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Pastelitos criollos",
+      "category": "Dulces",
+      "region": "Argentina",
+      "description": "Estrellas de hojaldre fritas, rellenas de dulce de membrillo y bañadas en almíbar. Infaltables cada 25 de Mayo.",
+      "minutes": 60,
+      "difficulty": "Media",
+      "calories": "150 / u.",
+      "servings": 12,
+      "servingSingular": "pastelito",
+      "servingPlural": "pastelitos",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/92/Pastelitos_criollos_argentinos.jpg",
+      "photoCredit": "Foto: El rrienseolava · CC BY-SA 4.0 · Wikimedia Commons",
+      "ingredients": [
+        {
+          "quantity": 24,
+          "singular": "tapa de hojaldre para pastelitos",
+          "plural": "tapas de hojaldre para pastelitos"
+        },
+        {
+          "quantity": 400,
+          "singular": "g de dulce de membrillo",
+          "plural": "g de dulce de membrillo"
+        },
+        {
+          "quantity": 300,
+          "singular": "g de azúcar",
+          "plural": "g de azúcar"
+        },
+        {
+          "quantity": 150,
+          "singular": "ml de agua",
+          "plural": "ml de agua"
+        },
+        {
+          "quantity": 2,
+          "singular": "cda. de granas de colores",
+          "plural": "cdas. de granas de colores"
+        },
+        {
+          "quantity": 0,
+          "singular": "Aceite para freír",
+          "plural": "Aceite para freír"
+        }
+      ],
+      "steps": [
+        {
+          "text": "Cortar el dulce de membrillo en cubos.",
+          "minutes": 0
+        },
+        {
+          "text": "Poner un cubo en el centro de una tapa, humedecer el borde y cubrir con otra tapa girada.",
+          "minutes": 0
+        },
+        {
+          "text": "Presionar las puntas para que quede una estrella cerrada.",
+          "minutes": 0
+        },
+        {
+          "text": "Preparar el almíbar hirviendo el agua con el azúcar.",
+          "minutes": 5
+        },
+        {
+          "text": "Freír en aceite tibio, rociando para que se abran las capas.",
+          "minutes": 4
+        },
+        {
+          "text": "Escurrir y sumergir unos segundos en el almíbar.",
+          "minutes": 0
+        },
+        {
+          "text": "Decorar con granas de colores.",
+          "minutes": 0
+        }
+      ]
+    }
+  ]
+}
