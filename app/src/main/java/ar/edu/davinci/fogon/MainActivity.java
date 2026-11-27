@@ -185,9 +185,16 @@ public class MainActivity extends AppCompatActivity implements ApiRequest.Listen
         if (recipe.hasImage()) ImageDownloader.load(image, recipe.getImageUrl());
     }
 
+    private boolean isFiltering() {
+        return selectedCategory != null || !normalize(searchQuery).isEmpty();
+    }
+
     private void renderRecipes(List<Recipe> recipes) {
         LinearLayout container = findViewById(R.id.recipesContainer);
         container.removeAllViews();
+
+        boolean showFeatured = RecipeRepository.getFeatured() != null && !isFiltering();
+        findViewById(R.id.featuredCard).setVisibility(showFeatured ? View.VISIBLE : View.GONE);
 
         TextView count = findViewById(R.id.recipesCount);
         count.setText(getResources().getQuantityString(R.plurals.home_recipes_count, recipes.size(), recipes.size()));
