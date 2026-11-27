@@ -1,5 +1,6 @@
 package ar.edu.davinci.fogon;
 
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Paint;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
@@ -26,6 +28,12 @@ import java.util.Locale;
 import java.util.Map;
 
 public class ShoppingListActivity extends AppCompatActivity {
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        BottomNav.handleNewRecipeResult(this, requestCode, resultCode, data);
+    }
 
     public void addCustomItem(View view) {
         EditText input = findViewById(R.id.newItemInput);

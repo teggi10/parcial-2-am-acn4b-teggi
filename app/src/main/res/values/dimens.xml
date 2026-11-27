@@ -44,6 +44,8 @@
     <dimen name="progress_gap">6dp</dimen>
     <dimen name="timer_radius">20dp</dimen>
 
+    <dimen name="quantity_input_width">76dp</dimen>
+
     <dimen name="card_radius">14dp</dimen>
     <dimen name="card_padding">12dp</dimen>
     <dimen name="card_gap">8dp</dimen>

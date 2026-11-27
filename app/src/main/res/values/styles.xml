@@ -1,0 +1,33 @@
+<resources>
+    <style name="Fogon.Label" parent="">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/screen_padding</item>
+        <item name="android:layout_marginBottom">@dimen/text_spacing</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:textSize">@dimen/text_body</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Fogon.Input" parent="">
+        <item name="android:layout_height">@dimen/search_height</item>
+        <item name="android:autofillHints">""</item>
+        <item name="android:background">@drawable/bg_search</item>
+        <item name="android:paddingStart">@dimen/search_padding</item>
+        <item name="android:paddingEnd">@dimen/search_padding</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:textColorHint">@color/muted</item>
+        <item name="android:textSize">@dimen/text_body</item>
+    </style>
+
+    <style name="Fogon.SmallButton" parent="Widget.Material3.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/search_height</item>
+        <item name="android:layout_marginStart">@dimen/card_gap</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:textSize">@dimen/text_body</item>
+        <item name="backgroundTint">@color/herb</item>
+        <item name="cornerRadius">@dimen/card_radius</item>
+    </style>
+</resources>

@@ -109,6 +109,10 @@ public class Recipe implements Serializable {
         return imageUrl;
     }
 
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
     public boolean hasImage() {
         return imageUrl != null && !imageUrl.isEmpty();
     }

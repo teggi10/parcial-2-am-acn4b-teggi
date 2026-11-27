@@ -8,6 +8,8 @@ import java.util.List;
  */
 public class RecipeRepository {
     private static final List<Recipe> remoteRecipes = new ArrayList<>();
+    private static final List<Recipe> customRecipes = new ArrayList<>();
+    private static int nextCustomId = 1000;
 
     public static boolean isLoaded() {
         return !remoteRecipes.isEmpty();
@@ -18,8 +20,16 @@ public class RecipeRepository {
         remoteRecipes.addAll(recipes);
     }
 
+    /** The recipes the user created go first, so they find them right after saving. */
     public static List<Recipe> getAll() {
-        return new ArrayList<>(remoteRecipes);
+        List<Recipe> all = new ArrayList<>(customRecipes);
+        all.addAll(remoteRecipes);
+        return all;
+    }
+
+    public static void addCustomRecipe(Recipe recipe) {
+        recipe.setId(nextCustomId++);
+        customRecipes.add(0, recipe);
     }
 
     public static List<String> getCategories() {

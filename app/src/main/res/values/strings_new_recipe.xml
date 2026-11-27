@@ -1,0 +1,38 @@
+<resources>
+    <string name="new_recipe_title">Nueva receta</string>
+    <string name="new_recipe_photo_hint">URL de una foto (opcional)</string>
+    <string name="new_recipe_photo_preview">Ver foto</string>
+    <string name="new_recipe_name">Nombre</string>
+    <string name="new_recipe_name_hint">Ej.: Tarta de espinaca</string>
+    <string name="new_recipe_description">Descripción</string>
+    <string name="new_recipe_description_hint">Contá en una línea qué tiene de rico</string>
+    <string name="new_recipe_category">Categoría</string>
+    <string name="new_recipe_minutes">Minutos</string>
+    <string name="new_recipe_servings">Porciones</string>
+    <string name="new_recipe_default_minutes">60</string>
+    <string name="new_recipe_default_servings">4</string>
+    <string name="new_recipe_ingredients">Ingredientes</string>
+    <string name="new_recipe_quantity_hint">Cant.</string>
+    <string name="new_recipe_ingredient_hint">Ej.: huevos</string>
+    <string name="new_recipe_steps">Pasos</string>
+    <string name="new_recipe_step_hint">Ej.: Rehogar la cebolla</string>
+    <string name="new_recipe_add">Agregar</string>
+    <string name="new_recipe_remove">Quitar</string>
+    <string name="new_recipe_save">Guardar receta</string>
+    <string name="new_recipe_saved_toast">¡Receta «%1$s» guardada!</string>
+    <string name="new_recipe_error_name">Poné un nombre</string>
+    <string name="new_recipe_error_number">Ingresá un número mayor a 0</string>
+    <string name="new_recipe_error_ingredients">Agregá al menos un ingrediente</string>
+    <string name="new_recipe_error_steps">Agregá al menos un paso</string>
+    <string name="new_recipe_default_region">Receta casera</string>
+    <string name="new_recipe_default_difficulty">Media</string>
+    <string name="new_recipe_default_calories">—</string>
+    <string name="new_recipe_default_serving_singular">porción</string>
+    <string name="new_recipe_default_serving_plural">porciones</string>
+    <string name="new_recipe_step_number">%1$d.</string>
+    <string-array name="new_recipe_categories">
+        <item>Saladas</item>
+        <item>Dulces</item>
+        <item>Veggie</item>
+    </string-array>
+</resources>

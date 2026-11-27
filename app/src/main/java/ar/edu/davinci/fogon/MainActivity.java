@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
@@ -29,6 +30,19 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity implements ApiRequest.Listener {
     public String selectedCategory = null;
     public String searchQuery = "";
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Recipe created = BottomNav.handleNewRecipeResult(this, requestCode, resultCode, data);
+        if (created == null) return;
+
+        // Clear the filters so the new recipe is visible at the top of the list.
+        selectedCategory = null;
+        EditText searchInput = findViewById(R.id.searchInput);
+        searchInput.setText("");
+        render();
+    }
 
     private void openRecipe(Recipe recipe) {
         Intent intent = new Intent(this, RecipeDetailActivity.class);
