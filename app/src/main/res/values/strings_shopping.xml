@@ -1,0 +1,17 @@
+<resources>
+    <string name="shopping_title">Lista de compras</string>
+    <string name="shopping_subtitle">Para: %1$s</string>
+    <string name="shopping_subtitle_empty">Sumá ingredientes desde cualquier receta</string>
+    <string name="shopping_progress">%1$d de %2$d comprados</string>
+    <string name="shopping_new_item_hint">Agregar algo más…</string>
+    <string name="shopping_add_item">Agregar</string>
+    <string name="shopping_others">Otros</string>
+    <string name="shopping_empty">Tu lista está vacía. Abrí una receta y tocá «Agregar a compras».</string>
+    <string name="shopping_clear_checked">Borrar comprados</string>
+    <string name="shopping_recipes_separator">, </string>
+    <string name="shopping_view_list">Ver lista</string>
+    <plurals name="shopping_cleared_toast">
+        <item quantity="one">Se borró %1$d ítem comprado</item>
+        <item quantity="other">Se borraron %1$d ítems comprados</item>
+    </plurals>
+</resources>

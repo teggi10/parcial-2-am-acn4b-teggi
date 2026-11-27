@@ -23,6 +23,13 @@ public class BottomNav {
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             activity.startActivity(intent);
         });
+
+        activity.findViewById(R.id.navShopping).setOnClickListener(v -> {
+            if (current == Tab.SHOPPING) return;
+            Intent intent = new Intent(activity, ShoppingListActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+            activity.startActivity(intent);
+        });
     }
 
     private static void highlight(Activity activity, int iconId, int labelId, boolean active) {

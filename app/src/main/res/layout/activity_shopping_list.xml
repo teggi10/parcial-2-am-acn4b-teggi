@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".ShoppingListActivity">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/bottomNav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/screen_padding">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/section_spacing"
+                android:text="@string/shopping_title"
+                android:textColor="@color/ink"
+                android:textSize="@dimen/text_display"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/shoppingSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/muted"
+                android:textSize="@dimen/text_body" />
+
+            <LinearLayout
+                android:id="@+id/shoppingProgressCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/section_spacing"
+                android:background="@drawable/bg_info_card"
+                android:orientation="vertical"
+                android:padding="@dimen/screen_padding">
+
+                <TextView
+                    android:id="@+id/shoppingProgressText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/herb_dark"
+                    android:textSize="@dimen/text_body"
+                    android:textStyle="bold" />
+
+                <ProgressBar
+                    android:id="@+id/shoppingProgress"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/text_spacing"
+                    android:progressBackgroundTint="@color/divider"
+                    android:progressTint="@color/herb" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/screen_padding"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/newItemInput"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/search_height"
+                    android:layout_weight="1"
+                    android:autofillHints=""
+                    android:background="@drawable/bg_search"
+                    android:hint="@string/shopping_new_item_hint"
+                    android:imeOptions="actionDone"
+                    android:inputType="textCapSentences"
+                    android:paddingStart="@dimen/search_padding"
+                    android:paddingEnd="@dimen/search_padding"
+                    android:textColor="@color/ink"
+                    android:textColorHint="@color/muted"
+                    android:textSize="@dimen/text_body" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/search_height"
+                    android:layout_marginStart="@dimen/card_gap"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:onClick="addCustomItem"
+                    android:text="@string/shopping_add_item"
+                    android:textSize="@dimen/text_body"
+                    app:backgroundTint="@color/herb"
+                    app:cornerRadius="@dimen/card_radius" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/shoppingEmpty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/section_spacing"
+                android:gravity="center"
+                android:text="@string/shopping_empty"
+                android:textColor="@color/muted"
+                android:textSize="@dimen/text_body"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/shoppingContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <Button
+                android:id="@+id/buttonClearChecked"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/action_button_height"
+                android:layout_marginTop="@dimen/section_spacing"
+                android:onClick="clearCheckedItems"
+                android:text="@string/shopping_clear_checked"
+                android:textColor="@color/tomato"
+                android:textSize="@dimen/text_body"
+                app:cornerRadius="@dimen/card_radius"
+                app:strokeColor="@color/tomato" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <include
+        layout="@layout/layout_bottom_nav"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/nav_height"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

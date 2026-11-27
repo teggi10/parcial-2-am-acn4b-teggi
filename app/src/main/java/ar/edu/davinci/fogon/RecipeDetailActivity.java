@@ -24,6 +24,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -100,7 +102,16 @@ public class RecipeDetailActivity extends AppCompatActivity {
 
         updateShoppingButton();
         String message = getResources().getQuantityString(R.plurals.shopping_added_toast, added, added);
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+        Snackbar.make(findViewById(R.id.main), message, Snackbar.LENGTH_LONG)
+                .setAnchorView(R.id.actionBar)
+                .setAction(R.string.shopping_view_list, v -> openShoppingList())
+                .show();
+    }
+
+    private void openShoppingList() {
+        Intent intent = new Intent(this, ShoppingListActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        startActivity(intent);
     }
 
     private void updateShoppingButton() {
