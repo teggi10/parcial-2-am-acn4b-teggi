@@ -1,0 +1,27 @@
+<resources>
+    <string name="home_greeting">Hola</string>
+    <string name="home_title">¿Qué cocinamos hoy?</string>
+    <string name="home_search_hint">Buscar recetas o ingredientes</string>
+    <string name="home_featured_badge">Destacada de la semana</string>
+    <string name="home_recipes_title">Recetas</string>
+    <string name="home_loading">Cargando recetas…</string>
+    <string name="home_error">No pudimos cargar las recetas. Revisá tu conexión.</string>
+    <string name="home_retry">Reintentar</string>
+    <string name="home_empty">No encontramos recetas con ese filtro.</string>
+    <string name="home_all_categories">Todas</string>
+    <string name="recipes_url">https://raw.githubusercontent.com/teggi10/parcial-2-am-acn4b-teggi/main/api/recipes.json</string>
+
+    <string name="nav_home">Inicio</string>
+    <string name="nav_new_recipe">Nueva receta</string>
+    <string name="nav_shopping">Compras</string>
+
+    <string name="time_minutes">%1$d min</string>
+    <string name="time_hours">%1$d h</string>
+    <string name="time_hours_minutes">%1$d h %2$d min</string>
+    <string name="recipe_meta">%1$s · %2$s</string>
+    <string name="featured_meta">%1$s · Dificultad %2$s · %3$d %4$s</string>
+    <plurals name="home_recipes_count">
+        <item quantity="one">%1$d receta</item>
+        <item quantity="other">%1$d recetas</item>
+    </plurals>
+</resources>

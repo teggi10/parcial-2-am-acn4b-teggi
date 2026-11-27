@@ -15,4 +15,5 @@
     <color name="herb_soft_text">#FF3D4A3E</color>
     <color name="tomato">#FFC4491F</color>
     <color name="crust">#FFE8DCCB</color>
+    <color name="crust_dark">#FF8A7560</color>
 </resources>

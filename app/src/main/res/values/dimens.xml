@@ -19,6 +19,25 @@
     <dimen name="action_bar_padding">12dp</dimen>
     <dimen name="action_button_height">56dp</dimen>
 
+    <dimen name="text_display">30sp</dimen>
+    <dimen name="text_nav">12sp</dimen>
+
+    <dimen name="chip_height">40dp</dimen>
+    <dimen name="chip_radius">20dp</dimen>
+    <dimen name="chip_padding">16dp</dimen>
+    <dimen name="search_height">52dp</dimen>
+    <dimen name="search_padding">14dp</dimen>
+    <dimen name="thumb_size">64dp</dimen>
+    <dimen name="thumb_radius">12dp</dimen>
+    <dimen name="badge_radius">10dp</dimen>
+    <dimen name="badge_padding_horizontal">10dp</dimen>
+    <dimen name="badge_padding_vertical">5dp</dimen>
+    <dimen name="featured_image_height">180dp</dimen>
+    <dimen name="nav_height">72dp</dimen>
+    <dimen name="nav_item_width">88dp</dimen>
+    <dimen name="fab_size">56dp</dimen>
+    <dimen name="icon_size">24dp</dimen>
+
     <dimen name="card_radius">14dp</dimen>
     <dimen name="card_padding">12dp</dimen>
     <dimen name="card_gap">8dp</dimen>
