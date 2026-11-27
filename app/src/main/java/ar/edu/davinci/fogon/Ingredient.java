@@ -1,27 +1,44 @@
 package ar.edu.davinci.fogon;
 
-import androidx.annotation.PluralsRes;
+import java.io.Serializable;
 
-public class Ingredient {
-    private final double baseQuantity;
-    private final int nameRes;
+public class Ingredient implements Serializable {
+    private double quantity;
+    private String singular;
+    private String plural;
     private boolean checked;
 
-    public Ingredient(double baseQuantity, @PluralsRes int nameRes) {
-        this.baseQuantity = baseQuantity;
-        this.nameRes = nameRes;
+    public Ingredient() {
+    }
+
+    public Ingredient(double quantity, String singular, String plural) {
+        this.quantity = quantity;
+        this.singular = singular;
+        this.plural = plural;
+    }
+
+    public double getQuantity() {
+        return quantity;
     }
 
     public double getQuantityFor(int portions, int basePortions) {
-        return baseQuantity * portions / basePortions;
+        return quantity * portions / basePortions;
     }
 
     public boolean isToTaste() {
-        return baseQuantity == 0;
+        return quantity == 0;
     }
 
-    public int getNameRes() {
-        return nameRes;
+    public String getSingular() {
+        return singular;
+    }
+
+    public String getPlural() {
+        return plural;
+    }
+
+    public String getNameFor(double amount) {
+        return amount <= 1 ? singular : plural;
     }
 
     public boolean isChecked() {

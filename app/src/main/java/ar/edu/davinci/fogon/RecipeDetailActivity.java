@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -24,20 +25,22 @@ import androidx.core.view.WindowInsetsCompat;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class RecipeDetailActivity extends AppCompatActivity {
     public static final String EXTRA_RECIPE = "recipe";
-
-    public final int BASE_PORTIONS = 12;
     public final int MIN_PORTIONS = 1;
-    public final int MAX_PORTIONS = 48;
 
-    public int portions = BASE_PORTIONS;
+    public Recipe recipe;
+    public int portions;
     public boolean inShoppingList = false;
     public boolean isFavorite = false;
-    public List<Ingredient> ingredients = new ArrayList<>();
     public List<LinearLayout> stepRows = new ArrayList<>();
     public int currentStep = -1;
+
+    private int maxPortions() {
+        return recipe.getServings() * 4;
+    }
 
     public void nextCookingStep(View view) {
         currentStep++;
@@ -122,7 +125,7 @@ public class RecipeDetailActivity extends AppCompatActivity {
 
     private int countMissingIngredients() {
         int missing = 0;
-        for (Ingredient ingredient : ingredients) {
+        for (Ingredient ingredient : recipe.getIngredients()) {
             if (!ingredient.isChecked() && !ingredient.isToTaste()) missing++;
         }
         return missing;
@@ -135,7 +138,7 @@ public class RecipeDetailActivity extends AppCompatActivity {
     }
 
     public void increasePortions(View view) {
-        if (portions >= MAX_PORTIONS) return;
+        if (portions >= maxPortions()) return;
         portions++;
         updatePortions();
     }
@@ -144,56 +147,65 @@ public class RecipeDetailActivity extends AppCompatActivity {
         TextView portionsCount = findViewById(R.id.portionsCount);
         portionsCount.setText(String.valueOf(portions));
 
+        TextView portionsLabel = findViewById(R.id.portionsLabel);
+        portionsLabel.setText(capitalize(recipe.getServingName(portions)));
+
         findViewById(R.id.buttonLessPortions).setEnabled(portions > MIN_PORTIONS);
-        findViewById(R.id.buttonMorePortions).setEnabled(portions < MAX_PORTIONS);
+        findViewById(R.id.buttonMorePortions).setEnabled(portions < maxPortions());
 
         renderIngredients();
     }
 
-    private void loadIngredients() {
-        ingredients.add(new Ingredient(12, R.plurals.ingredient_dough));
-        ingredients.add(new Ingredient(500, R.plurals.ingredient_beef));
-        ingredients.add(new Ingredient(2, R.plurals.ingredient_onion));
-        ingredients.add(new Ingredient(1, R.plurals.ingredient_pepper));
-        ingredients.add(new Ingredient(2, R.plurals.ingredient_potato));
-        ingredients.add(new Ingredient(3, R.plurals.ingredient_egg));
-        ingredients.add(new Ingredient(3, R.plurals.ingredient_green_onion));
-        ingredients.add(new Ingredient(2, R.plurals.ingredient_lard));
-        ingredients.add(new Ingredient(1, R.plurals.ingredient_cumin));
-        ingredients.add(new Ingredient(1, R.plurals.ingredient_paprika));
-        ingredients.add(new Ingredient(0, R.plurals.ingredient_salt));
+    private String capitalize(String text) {
+        if (text == null || text.isEmpty()) return getString(R.string.portions_label);
+        return text.substring(0, 1).toUpperCase(Locale.getDefault()) + text.substring(1);
     }
 
-    private String formatQuantity(double value) {
-        if (value >= 10) return String.valueOf(Math.round(value));
+    private void bindRecipe() {
+        TextView category = findViewById(R.id.recipeCategory);
+        category.setText(getString(R.string.recipe_overline, recipe.getCategory(), recipe.getRegion()));
 
-        double rounded = Math.max(0.5, Math.round(value * 2) / 2.0);
-        int whole = (int) Math.floor(rounded);
-        boolean hasHalf = rounded - whole > 0;
+        TextView title = findViewById(R.id.recipeTitle);
+        title.setText(recipe.getName());
 
-        if (!hasHalf) return String.valueOf(whole);
-        if (whole == 0) return getString(R.string.symbol_half);
-        return getString(R.string.quantity_with_half, whole);
-    }
+        TextView description = findViewById(R.id.recipeDescription);
+        description.setText(recipe.getDescription());
 
-    private String describeIngredient(Ingredient ingredient) {
-        if (ingredient.isToTaste()) {
-            return getResources().getQuantityString(ingredient.getNameRes(), 2);
+        TextView time = findViewById(R.id.infoTimeValue);
+        time.setText(RecipeFormat.time(this, recipe.getMinutes()));
+
+        TextView difficulty = findViewById(R.id.infoDifficultyValue);
+        difficulty.setText(recipe.getDifficulty());
+
+        TextView calories = findViewById(R.id.infoCaloriesValue);
+        calories.setText(recipe.getCalories());
+
+        ImageView hero = findViewById(R.id.heroImage);
+        ImageButton favorite = findViewById(R.id.buttonFavorite);
+        if (recipe.hasImage()) {
+            hero.setContentDescription(recipe.getName());
+            ImageDownloader.load(hero, recipe.getImageUrl());
+        } else {
+            hero.setScaleType(ImageView.ScaleType.CENTER);
+            hero.setImageResource(R.drawable.ic_photo_placeholder);
         }
-        double quantity = ingredient.getQuantityFor(portions, BASE_PORTIONS);
-        int pluralCount = quantity <= 1 ? 1 : 2;
-        return getResources().getQuantityString(
-                ingredient.getNameRes(), pluralCount, formatQuantity(quantity)
-        );
+        favorite.setContentDescription(getString(R.string.favorite_add));
+
+        TextView credit = findViewById(R.id.photoCredit);
+        if (recipe.getPhotoCredit() != null) {
+            credit.setText(recipe.getPhotoCredit());
+        } else {
+            credit.setVisibility(View.GONE);
+        }
     }
 
     private void renderIngredients() {
         LinearLayout container = findViewById(R.id.ingredientsContainer);
         container.removeAllViews();
 
-        for (Ingredient ingredient : ingredients) {
+        for (Ingredient ingredient : recipe.getIngredients()) {
             CheckBox checkBox = new CheckBox(this);
-            checkBox.setText(describeIngredient(ingredient));
+            checkBox.setText(RecipeFormat.ingredient(this, ingredient, portions, recipe.getServings()));
             checkBox.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.text_body));
             checkBox.setMinHeight(getResources().getDimensionPixelSize(R.dimen.row_min_height));
             checkBox.setButtonTintList(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.herb)));
@@ -220,12 +232,12 @@ public class RecipeDetailActivity extends AppCompatActivity {
 
     private void renderSteps() {
         LinearLayout container = findViewById(R.id.stepsContainer);
-        String[] steps = getResources().getStringArray(R.array.recipe_steps);
+        List<Step> steps = recipe.getSteps();
         int padding = getResources().getDimensionPixelSize(R.dimen.card_padding);
         int numberSize = getResources().getDimensionPixelSize(R.dimen.step_number_size);
         int gap = getResources().getDimensionPixelSize(R.dimen.step_gap);
 
-        for (int i = 0; i < steps.length; i++) {
+        for (int i = 0; i < steps.size(); i++) {
             LinearLayout row = new LinearLayout(this);
             row.setOrientation(LinearLayout.HORIZONTAL);
             row.setPadding(padding, padding, padding, padding);
@@ -239,7 +251,7 @@ public class RecipeDetailActivity extends AppCompatActivity {
             row.addView(number, new LinearLayout.LayoutParams(numberSize, numberSize));
 
             TextView text = new TextView(this);
-            text.setText(steps[i]);
+            text.setText(steps.get(i).getText());
             text.setTextColor(ContextCompat.getColor(this, R.color.ink));
             text.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.text_body));
             LinearLayout.LayoutParams textParams = new LinearLayout.LayoutParams(
@@ -264,8 +276,15 @@ public class RecipeDetailActivity extends AppCompatActivity {
             return insets;
         });
 
-        loadIngredients();
-        renderIngredients();
+        recipe = (Recipe) getIntent().getSerializableExtra(EXTRA_RECIPE);
+        if (recipe == null) {
+            finish();
+            return;
+        }
+        portions = recipe.getServings();
+
+        bindRecipe();
+        updatePortions();
         renderSteps();
     }
 }
